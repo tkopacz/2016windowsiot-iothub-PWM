@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Slider x:Name="slA" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="700" ValueChanged="slA_ValueChanged" Minimum="-100" Maximum="100" Value="0"/>
-        <Slider x:Name="slB" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="700" ValueChanged="slB_ValueChanged" Minimum="-100" Maximum="100" Value="0"/>
+        <Slider x:Name="sl1" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="700" ValueChanged="sl1_ValueChanged" Minimum="0" Maximum="180" Value="90"/>
+        <Slider x:Name="sl2" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="700" ValueChanged="sl2_ValueChanged" Minimum="0" Maximum="180" Value="90"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="714,165,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="714,123,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
 

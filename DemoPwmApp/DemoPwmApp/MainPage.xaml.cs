@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -35,9 +36,12 @@ namespace DemoPwmApp
             this.hat = await GIS.FEZHAT.CreateAsync();
             // Motors typically require a frequency in excess of 10KHz
             // Servos typically require 50Hz.
-
+            //this.hat.PwmFrequency = 10000;//50;
             this.hat.S1.SetLimits(500, 2400, 0, 180);
             this.hat.S2.SetLimits(500, 2400, 0, 180);
+
+            //this.hat.S1.Position = 45;
+            //this.hat.S1.Position = 90;
 
             //Other sensors
             Debug.WriteLine($"Light: {this.hat.GetLightLevel()}");
@@ -48,16 +52,16 @@ namespace DemoPwmApp
             Debug.WriteLine($"Accel: ({x:N2}, {y:N2}, {z:N2})");
         }
 
-        private void slA_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void sl1_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            double val = e.NewValue / 100.0;
-            this.hat.MotorA.Speed = val;
+            if (hat == null) return;
+            this.hat.S1.Position = e.NewValue;
         }
 
-        private void slB_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void sl2_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            double val = e.NewValue / 100.0;
-            this.hat.MotorB.Speed = val;
+            if (hat == null) return;
+            this.hat.S2.Position = e.NewValue;
         }
     }
 }
